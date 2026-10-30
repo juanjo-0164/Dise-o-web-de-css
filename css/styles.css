@@ -1,0 +1,520 @@
+/* =========================================================
+   Laboratorio de temas con Bootstrap 5.3
+   Cada tema es un conjunto de variables --t-* ; más abajo
+   esas variables se conectan con las variables de Bootstrap.
+   ========================================================= */
+
+/* ---------- 1. Definición de los temas ---------- */
+:root,
+[data-tema="claro"] {
+    --t-bg: #f5f6fa;
+    --t-surface: #ffffff;
+    --t-surface-2: #eceef5;
+    --t-text: #191c27;
+    --t-muted: #596075;
+    --t-border: #d9dce6;
+    --t-primary: #3a4ee0;
+    --t-primary-rgb: 58, 78, 224;
+    --t-on-primary: #ffffff;
+    --t-accent: #ffb703;
+}
+
+[data-tema="oscuro"] {
+    --t-bg: #11131a;
+    --t-surface: #1a1d27;
+    --t-surface-2: #232733;
+    --t-text: #e8eaf2;
+    --t-muted: #9aa1b5;
+    --t-border: #2e3342;
+    --t-primary: #8aa1ff;
+    --t-primary-rgb: 138, 161, 255;
+    --t-on-primary: #0d1030;
+    --t-accent: #ffd166;
+}
+
+[data-tema="oceano"] {
+    --t-bg: #eaf5f6;
+    --t-surface: #ffffff;
+    --t-surface-2: #d8ecee;
+    --t-text: #0e2a2f;
+    --t-muted: #4a6b70;
+    --t-border: #bfdadd;
+    --t-primary: #087f8c;
+    --t-primary-rgb: 8, 127, 140;
+    --t-on-primary: #ffffff;
+    --t-accent: #ff7f50;
+}
+
+[data-tema="atardecer"] {
+    --t-bg: #fff3ea;
+    --t-surface: #fffaf6;
+    --t-surface-2: #ffe3d0;
+    --t-text: #3a1d10;
+    --t-muted: #85523a;
+    --t-border: #f0cdb6;
+    --t-primary: #c8400f;
+    --t-primary-rgb: 200, 64, 15;
+    --t-on-primary: #ffffff;
+    --t-accent: #6a1b9a;
+}
+
+[data-tema="bosque"] {
+    --t-bg: #0e1812;
+    --t-surface: #16241b;
+    --t-surface-2: #1e3226;
+    --t-text: #e4f1e8;
+    --t-muted: #92b09c;
+    --t-border: #2a4233;
+    --t-primary: #5fd08d;
+    --t-primary-rgb: 95, 208, 141;
+    --t-on-primary: #06210f;
+    --t-accent: #e9c46a;
+}
+
+[data-tema="sena"] {
+    --t-bg: #f3f9ee;
+    --t-surface: #ffffff;
+    --t-surface-2: #e1f0d6;
+    --t-text: #14210b;
+    --t-muted: #546a45;
+    --t-border: #cde0bd;
+    --t-primary: #2f8a00;
+    --t-primary-rgb: 47, 138, 0;
+    --t-on-primary: #ffffff;
+    --t-accent: #f5a300;
+}
+
+/* ---------- 2. Conexión con las variables de Bootstrap ---------- */
+html[data-tema] {
+    --bs-body-bg: var(--t-bg);
+    --bs-body-color: var(--t-text);
+    --bs-secondary-color: var(--t-muted);
+    --bs-tertiary-bg: var(--t-surface-2);
+    --bs-border-color: var(--t-border);
+    --bs-primary: var(--t-primary);
+    --bs-primary-rgb: var(--t-primary-rgb);
+    --bs-link-color: var(--t-primary);
+    --bs-link-color-rgb: var(--t-primary-rgb);
+    --bs-link-hover-color: var(--t-primary);
+    --bs-link-hover-color-rgb: var(--t-primary-rgb);
+    --bs-body-font-family: "Figtree", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --bs-heading-color: var(--t-text);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--t-bg);
+    color: var(--t-text);
+    transition: background-color .25s ease, color .25s ease;
+}
+
+h1, h2, h3, h4, h5, .navbar-brand {
+    font-family: "Bricolage Grotesque", "Figtree", system-ui, sans-serif;
+    letter-spacing: -0.02em;
+}
+
+section[id], header[id] {
+    scroll-margin-top: 72px;
+}
+
+.text-muted,
+.text-body-secondary {
+    color: var(--t-muted) !important;
+}
+
+/* ---------- 3. Componentes de Bootstrap con el color del tema ---------- */
+.btn-primary {
+    --bs-btn-color: var(--t-on-primary);
+    --bs-btn-bg: var(--t-primary);
+    --bs-btn-border-color: var(--t-primary);
+    --bs-btn-hover-color: var(--t-on-primary);
+    --bs-btn-hover-bg: color-mix(in srgb, var(--t-primary) 85%, #000);
+    --bs-btn-hover-border-color: color-mix(in srgb, var(--t-primary) 85%, #000);
+    --bs-btn-active-color: var(--t-on-primary);
+    --bs-btn-active-bg: color-mix(in srgb, var(--t-primary) 75%, #000);
+    --bs-btn-active-border-color: color-mix(in srgb, var(--t-primary) 75%, #000);
+    --bs-btn-disabled-color: var(--t-on-primary);
+    --bs-btn-disabled-bg: var(--t-primary);
+    --bs-btn-disabled-border-color: var(--t-primary);
+    --bs-btn-focus-shadow-rgb: var(--t-primary-rgb);
+}
+
+.btn-outline-primary {
+    --bs-btn-color: var(--t-primary);
+    --bs-btn-border-color: var(--t-primary);
+    --bs-btn-hover-color: var(--t-on-primary);
+    --bs-btn-hover-bg: var(--t-primary);
+    --bs-btn-hover-border-color: var(--t-primary);
+    --bs-btn-active-color: var(--t-on-primary);
+    --bs-btn-active-bg: var(--t-primary);
+    --bs-btn-active-border-color: var(--t-primary);
+    --bs-btn-disabled-color: var(--t-primary);
+    --bs-btn-disabled-border-color: var(--t-primary);
+    --bs-btn-focus-shadow-rgb: var(--t-primary-rgb);
+}
+
+.btn-acento {
+    --bs-btn-color: #1a1a1a;
+    --bs-btn-bg: var(--t-accent);
+    --bs-btn-border-color: var(--t-accent);
+    --bs-btn-hover-color: #1a1a1a;
+    --bs-btn-hover-bg: color-mix(in srgb, var(--t-accent) 85%, #000);
+    --bs-btn-hover-border-color: color-mix(in srgb, var(--t-accent) 85%, #000);
+    --bs-btn-active-color: #1a1a1a;
+    --bs-btn-active-bg: color-mix(in srgb, var(--t-accent) 75%, #000);
+    --bs-btn-active-border-color: color-mix(in srgb, var(--t-accent) 75%, #000);
+}
+
+.text-bg-primary {
+    color: var(--t-on-primary) !important;
+    background-color: var(--t-primary) !important;
+}
+
+.text-bg-acento {
+    color: #1a1a1a !important;
+    background-color: var(--t-accent) !important;
+}
+
+.navbar {
+    background-color: color-mix(in srgb, var(--t-surface) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--t-border);
+    --bs-navbar-color: var(--t-muted);
+    --bs-navbar-hover-color: var(--t-primary);
+    --bs-navbar-active-color: var(--t-primary);
+    --bs-navbar-brand-color: var(--t-text);
+    --bs-navbar-brand-hover-color: var(--t-primary);
+    --bs-navbar-toggler-border-color: var(--t-border);
+}
+
+.navbar-toggler-icon {
+    filter: none;
+}
+
+[data-bs-theme="dark"] .navbar-toggler-icon {
+    filter: invert(1);
+}
+
+.card,
+.modal-content,
+.dropdown-menu,
+.offcanvas,
+.toast,
+.popover,
+.accordion,
+.list-group {
+    --bs-card-bg: var(--t-surface);
+    --bs-card-cap-bg: var(--t-surface-2);
+    --bs-card-border-color: var(--t-border);
+    --bs-modal-bg: var(--t-surface);
+    --bs-modal-border-color: var(--t-border);
+    --bs-dropdown-bg: var(--t-surface);
+    --bs-dropdown-border-color: var(--t-border);
+    --bs-dropdown-link-color: var(--t-text);
+    --bs-dropdown-link-hover-bg: var(--t-surface-2);
+    --bs-dropdown-link-hover-color: var(--t-text);
+    --bs-dropdown-link-active-bg: var(--t-primary);
+    --bs-dropdown-link-active-color: var(--t-on-primary);
+    --bs-offcanvas-bg: var(--t-surface);
+    --bs-toast-bg: var(--t-surface);
+    --bs-toast-border-color: var(--t-border);
+    --bs-popover-bg: var(--t-surface);
+    --bs-popover-border-color: var(--t-border);
+    --bs-popover-header-bg: var(--t-surface-2);
+    --bs-list-group-bg: var(--t-surface);
+    --bs-list-group-border-color: var(--t-border);
+    --bs-list-group-color: var(--t-text);
+    --bs-list-group-active-bg: var(--t-primary);
+    --bs-list-group-active-border-color: var(--t-primary);
+    --bs-list-group-active-color: var(--t-on-primary);
+    --bs-accordion-bg: var(--t-surface);
+    --bs-accordion-border-color: var(--t-border);
+    --bs-accordion-btn-bg: var(--t-surface);
+    --bs-accordion-btn-color: var(--t-text);
+    --bs-accordion-active-bg: rgba(var(--t-primary-rgb), .12);
+    --bs-accordion-active-color: var(--t-primary);
+    --bs-accordion-btn-focus-box-shadow: 0 0 0 .25rem rgba(var(--t-primary-rgb), .25);
+    --bs-accordion-btn-focus-border-color: var(--t-primary);
+}
+
+.form-control,
+.form-select {
+    background-color: var(--t-surface);
+    color: var(--t-text);
+    border-color: var(--t-border);
+}
+
+.form-control::placeholder {
+    color: var(--t-muted);
+    opacity: .75;
+}
+
+.form-control:focus,
+.form-select:focus {
+    background-color: var(--t-surface);
+    color: var(--t-text);
+    border-color: var(--t-primary);
+    box-shadow: 0 0 0 .25rem rgba(var(--t-primary-rgb), .25);
+}
+
+.form-check-input {
+    background-color: var(--t-surface);
+    border-color: var(--t-muted);
+}
+
+.form-check-input:checked,
+.form-check-input[type="checkbox"]:indeterminate {
+    background-color: var(--t-primary);
+    border-color: var(--t-primary);
+}
+
+.form-check-input:focus {
+    border-color: var(--t-primary);
+    box-shadow: 0 0 0 .25rem rgba(var(--t-primary-rgb), .25);
+}
+
+.form-range::-webkit-slider-thumb {
+    background-color: var(--t-primary);
+}
+
+.form-range::-moz-range-thumb {
+    background-color: var(--t-primary);
+}
+
+.nav-pills {
+    --bs-nav-pills-link-active-bg: var(--t-primary);
+    --bs-nav-pills-link-active-color: var(--t-on-primary);
+}
+
+.nav-tabs {
+    --bs-nav-tabs-border-color: var(--t-border);
+    --bs-nav-tabs-link-hover-border-color: var(--t-border);
+    --bs-nav-tabs-link-active-bg: var(--t-surface);
+    --bs-nav-tabs-link-active-color: var(--t-primary);
+    --bs-nav-tabs-link-active-border-color: var(--t-border) var(--t-border) var(--t-surface);
+    --bs-nav-link-color: var(--t-muted);
+    --bs-nav-link-hover-color: var(--t-primary);
+}
+
+.progress {
+    --bs-progress-bg: var(--t-surface-2);
+    --bs-progress-bar-bg: var(--t-primary);
+}
+
+.pagination {
+    --bs-pagination-bg: var(--t-surface);
+    --bs-pagination-color: var(--t-primary);
+    --bs-pagination-border-color: var(--t-border);
+    --bs-pagination-hover-bg: var(--t-surface-2);
+    --bs-pagination-hover-color: var(--t-primary);
+    --bs-pagination-hover-border-color: var(--t-border);
+    --bs-pagination-active-bg: var(--t-primary);
+    --bs-pagination-active-color: var(--t-on-primary);
+    --bs-pagination-active-border-color: var(--t-primary);
+    --bs-pagination-disabled-bg: var(--t-surface);
+    --bs-pagination-focus-box-shadow: 0 0 0 .25rem rgba(var(--t-primary-rgb), .25);
+}
+
+.table {
+    --bs-table-color: var(--t-text);
+    --bs-table-bg: transparent;
+    --bs-table-border-color: var(--t-border);
+    --bs-table-striped-bg: var(--t-surface-2);
+    --bs-table-striped-color: var(--t-text);
+    --bs-table-hover-bg: rgba(var(--t-primary-rgb), .12);
+    --bs-table-hover-color: var(--t-text);
+}
+
+.breadcrumb {
+    --bs-breadcrumb-divider-color: var(--t-muted);
+    --bs-breadcrumb-item-active-color: var(--t-muted);
+}
+
+.alert-primary {
+    --bs-alert-color: var(--t-text);
+    --bs-alert-bg: rgba(var(--t-primary-rgb), .14);
+    --bs-alert-border-color: rgba(var(--t-primary-rgb), .45);
+    --bs-alert-link-color: var(--t-primary);
+}
+
+.spinner-border.text-primary,
+.spinner-grow.text-primary {
+    color: var(--t-primary) !important;
+}
+
+.btn-close {
+    filter: none;
+}
+
+[data-bs-theme="dark"] .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+:focus-visible {
+    outline: 3px solid rgba(var(--t-primary-rgb), .55);
+    outline-offset: 2px;
+}
+
+/* ---------- 4. Estilos propios de la página ---------- */
+.hero {
+    padding: 4.5rem 0 4rem;
+    border-bottom: 1px solid var(--t-border);
+}
+
+.hero h1 {
+    font-size: clamp(2.4rem, 5.5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.02;
+    max-width: 14ch;
+}
+
+.hero .lead {
+    max-width: 46ch;
+    color: var(--t-muted);
+}
+
+/* Selector de temas: cada botón se pinta con SU propio tema */
+.tema-btn {
+    width: 100%;
+    padding: .65rem;
+    text-align: left;
+    background: var(--t-surface);
+    color: var(--t-text);
+    border: 2px solid var(--t-border);
+    border-radius: .9rem;
+    cursor: pointer;
+    transition: border-color .15s ease, transform .15s ease;
+}
+
+.tema-btn:hover {
+    border-color: var(--t-primary);
+}
+
+.tema-btn[aria-checked="true"] {
+    border-color: var(--t-primary);
+    box-shadow: 0 0 0 3px rgba(var(--t-primary-rgb), .25);
+}
+
+.tema-prev {
+    display: block;
+    position: relative;
+    height: 74px;
+    margin-bottom: .6rem;
+    background: var(--t-bg);
+    border: 1px solid var(--t-border);
+    border-radius: .55rem;
+    overflow: hidden;
+}
+
+.tema-prev::before {
+    content: "";
+    position: absolute;
+    inset: 12px 14px auto 14px;
+    height: 34px;
+    background: var(--t-surface);
+    border: 1px solid var(--t-border);
+    border-radius: .4rem;
+}
+
+.tema-prev::after {
+    content: "";
+    position: absolute;
+    left: 24px;
+    bottom: 10px;
+    width: 46px;
+    height: 12px;
+    background: var(--t-primary);
+    border-radius: 99px;
+    box-shadow: 54px 0 0 -2px var(--t-accent);
+}
+
+.tema-nombre {
+    display: block;
+    font-weight: 600;
+    font-size: .95rem;
+    padding-left: .15rem;
+}
+
+.seccion {
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--t-border);
+}
+
+.seccion > .container > .titulo {
+    margin-bottom: 2rem;
+}
+
+.seccion h2 {
+    font-weight: 700;
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+}
+
+.seccion .titulo p {
+    max-width: 60ch;
+    color: var(--t-muted);
+    margin-bottom: 0;
+}
+
+.caja-demo {
+    background: var(--t-surface);
+    border: 1px solid var(--t-border);
+    border-radius: .9rem;
+    padding: 1.5rem;
+}
+
+.muestra-color {
+    height: 110px;
+    border-radius: .6rem;
+    background: linear-gradient(135deg, var(--t-primary), color-mix(in srgb, var(--t-primary) 55%, var(--t-accent)));
+}
+
+.carousel-item .slide {
+    min-height: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2.5rem 4rem;
+    border-radius: .9rem;
+}
+
+.slide-1 { background: var(--t-primary); color: var(--t-on-primary); }
+.slide-2 { background: var(--t-surface-2); color: var(--t-text); border: 1px solid var(--t-border); }
+.slide-3 { background: var(--t-accent); color: #1a1a1a; }
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, .45);
+    border-radius: 50%;
+    background-size: 55%;
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
+.carousel-indicators [data-bs-target] {
+    background-color: currentColor;
+}
+
+pre.codigo {
+    background: var(--t-surface-2);
+    color: var(--t-text);
+    border: 1px solid var(--t-border);
+    border-radius: .7rem;
+    padding: 1.1rem 1.25rem;
+    font-size: .88rem;
+    line-height: 1.6;
+    overflow-x: auto;
+    margin: 0;
+}
+
+footer {
+    padding: 2.5rem 0;
+    color: var(--t-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { transition: none !important; animation: none !important; }
+}

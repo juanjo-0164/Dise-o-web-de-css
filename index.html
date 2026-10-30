@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="claro" data-bs-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio de temas - Componentes de Bootstrap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- ===== Navbar ===== -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#inicio">Laboratorio de temas</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menú">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menuPrincipal">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#botones">Botones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tarjetas">Tarjetas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#formularios">Formularios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#alertas">Alertas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contenido">Contenido</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#datos">Datos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#interactivos">Interactivos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#variables">Variables</a></li>
+                </ul>
+                <div class="dropdown">
+                    <button class="btn btn-outline-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Tema: <span id="nombreTemaActual">Claro</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" id="menuTemas">
+                        <li><button class="dropdown-item" type="button" data-tema="claro">Claro</button></li>
+                        <li><button class="dropdown-item" type="button" data-tema="oscuro">Oscuro</button></li>
+                        <li><button class="dropdown-item" type="button" data-tema="oceano">Océano</button></li>
+                        <li><button class="dropdown-item" type="button" data-tema="atardecer">Atardecer</button></li>
+                        <li><button class="dropdown-item" type="button" data-tema="bosque">Bosque</button></li>
+                        <li><button class="dropdown-item" type="button" data-tema="sena">SENA</button></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== Hero con el selector de temas ===== -->
+    <header class="hero" id="inicio">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <h1>Una página, seis temas.</h1>
+                    <p class="lead my-4">Elige un tema y mira cómo cambian todos los componentes de Bootstrap de esta página. Todo se controla con variables CSS, sin tocar el HTML.</p>
+                    <div class="d-flex flex-wrap gap-2">
+                        <a href="#botones" class="btn btn-primary btn-lg">Ver componentes</a>
+                        <a href="#variables" class="btn btn-outline-primary btn-lg">Ver variables CSS</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row g-3" id="selectorTemas" role="radiogroup" aria-label="Elegir tema">
+                        <div class="col-6 col-sm-4"><button type="button" class="tema-btn" data-tema="claro" role="radio" aria-checked="true"><span class="tema-prev"></span><span class="tema-nombre">Claro</span></button></div>
+                        <div class="col-6 col-sm-4"><button type="button" class="tema-btn" data-tema="oscuro" role="radio" aria-checked="false"><span class="tema-prev"></span><span class="tema-nombre">Oscuro</span></button></div>
+                        <div class="col-6 col-sm-4"><button type="button" class="tema-btn" data-tema="oceano" role="radio" aria-checked="false"><span class="tema-prev"></span><span class="tema-nombre">Océano</span></button></div>
+                        <div class="col-6 col-sm-4"><button type="button" class="tema-btn" data-tema="atardecer" role="radio" aria-checked="false"><span class="tema-prev"></span><span class="tema-nombre">Atardecer</span></button></div>
+                        <div class="col-6 col-sm-4"><button type="button" class="tema-btn" data-tema="bosque" role="radio" aria-checked="false"><span class="tema-prev"></span><span class="tema-nombre">Bosque</span></button></div>
+                        <div class="col-6 col-sm-4"><button type="button" class="tema-btn" data-tema="sena" role="radio" aria-checked="false"><span class="tema-prev"></span><span class="tema-nombre">SENA</span></button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ===== Botones ===== -->
+        <section class="seccion" id="botones">
+            <div class="container">
+                <div class="titulo">
+                    <h2>Botones</h2>
+                    <p>Variantes, tamaños, grupos y estados. El botón principal y el de contorno toman el color del tema.</p>
+                </div>
+                <div class="caja-demo">
+                    <div class="d-flex flex-wrap gap-2 mb-4">
+                        <button type="button" class="btn btn-primary">Principal</button>
+                        <button type="button" class="btn btn-secondary">Secundario</button>
+                        <button type="button" class="btn btn-success">Éxito</button>
+                        <button type="button" class="btn btn-danger">Peligro</button>
+                        <button type="button" class="btn btn-warning">Aviso</button>
+                        <button type="button" class="btn btn-info">Info</button>
+                        <button type="button" class="btn btn-acento">Acento del tema</button>
+                        <button type="button" class="btn btn-link">Enlace</button>
+                    </div>
+                    <div class="d-flex flex-wrap gap-2 mb-4">
+                        <button type="button" class="btn btn-outline-primary">Contorno principal</button>
+                        <button type="button" class="btn btn-outline-secondary">Contorno secundario</button>
+                        <button type="button" class="btn btn-outline-danger">Contorno peligro</button>
+                        <button type="button" class="btn btn-primary" disabled>Deshabilitado</button>
+                    </div>
+                    <div class="d-flex flex-wrap align-items-center gap-3">
+                        <button type="button" class="btn btn-primary btn-lg">Grande</button>
+                        <button type="button" class="btn btn-primary">Normal</button>
+                        <button type="button" class="btn btn-primary btn-sm">Pequeño</button>
+                        <div class="btn-group" role="group" aria-label="Grupo de botones">
+                            <button type="button" class="btn btn-outline-primary">Izquierda</button>
+                            <button type="button" class="btn btn-outline-primary">Centro</button>
+                            <button type="button" class="btn btn-outline-primary">Derecha</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Tarjetas ===== -->
+        <section class="seccion" id="tarjetas">
+            <div class="container">
+                <div class="titulo">
+                    <h2>Tarjetas</h2>
+                    <p>Contenedores con encabezado, lista, pie y variantes de color.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-header fw-semibold">Guía de aprendizaje</div>
+                            <div class="card-body">
+                                <div class="muestra-color mb-3"></div>
+                                <h5 class="card-title">DOM y eventos</h5>
+                                <p class="card-text text-muted">Practica selección de elementos, eventos y persistencia local con LocalStorage.</p>
+                                <a href="#botones" class="btn btn-primary">Abrir guía</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title d-flex justify-content-between align-items-center">
+                                    Tareas del trimestre
+                                    <span class="badge text-bg-primary">3 pendientes</span>
+                                </h5>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Evidencia de producto</li>
+                                <li class="list-group-item">Cuestionario técnico</li>
+                                <li class="list-group-item">Sustentación oral</li>
+                            </ul>
+                            <div class="card-footer text-muted">Actualizado hoy</div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-4">
+                        <div class="card text-bg-primary h-100">
+                            <div class="card-body d-flex flex-column justify-content-between">
+                                <div>
+                                    <h5 class="card-title">Tarjeta destacada</h5>
+                                    <p class="card-text">Usa <code class="text-reset">text-bg-primary</code> para resaltar un bloque con el color principal del tema.</p>
+                                </div>
+                                <a href="#variables" class="btn btn-light align-self-start">Ver variables</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Formularios ===== -->
+        <section class="seccion" id="formularios">
+            <div class="container">
+                <div class="titulo">
+                    <h2>Formularios</h2>
+                    <p>Campos de texto, selección, casillas, interruptores y validación. El borde de foco usa el color del tema.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-7">
+                        <form class="caja-demo" id="formDemo" novalidate>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="nombre" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="nombre" placeholder="Tu nombre" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="correo" class="form-label">Correo</label>
+                                    <input type="email" class="form-control" id="correo" placeholder="nombre@correo.com" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="programa" class="form-label">Programa</label>
+                                    <select class="form-select" id="programa">
+                                        <option selected>Análisis y Desarrollo de Software</option>
+                                        <option>Diseño Frontend</option>
+                                        <option>Bases de datos</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="nivel" class="form-label">Nivel de avance</label>
+                                    <input type="range" class="form-range mt-2" id="nivel" min="0" max="100" value="60">
+                                </div>
+                                <div class="col-12">
+                                    <label for="mensaje" class="form-label">Mensaje</label>
+                                    <textarea class="form-control" id="mensaje" rows="3" placeholder="Escribe aquí"></textarea>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" id="terminos" checked>
+                                        <label class="form-check-label" for="terminos">Acepto los términos</label>
+                                    </div>
+                                    <div class="form-check form-switch mt-2">
+                                        <input class="form-check-input" type="checkbox" role="switch" id="notificaciones" checked>
+                                        <label class="form-check-label" for="notificaciones">Recibir notificaciones</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="jornada" id="diurna" checked>
+                                        <label class="form-check-label" for="diurna">Jornada diurna</label>
+                                    </div>
+                                    <div class="form-check mt-2">
+                                        <input class="form-check-input" type="radio" name="jornada" id="nocturna">
+                                        <label class="form-check-label" for="nocturna">Jornada nocturna</label>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-primary">Enviar formulario</button>
+                                    <button type="reset" class="btn btn-outline-secondary">Limpiar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="caja-demo">
+                            <h5 class="mb-3">Estados de validación</h5>
+                            <div class="mb-3">
+                                <label for="valido" class="form-label">Usuario</label>
+                                <input type="text" class="form-control is-valid" id="valido" value="aprendiz2026">
+                                <div class="valid-feedback">Usuario disponible.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="invalido" class="form-label">Contraseña</label>
+                                <input type="password" class="form-control is-invalid" id="invalido" value="123">
+                                <div class="invalid-feedback">Usa al menos 8 caracteres.</div>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-text">@</span>
+                                <input type="text" class="form-control" placeholder="usuario de GitHub" aria-label="Usuario de GitHub">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Alertas ===== -->
+        <section class="seccion" id="alertas">
+            <div class="container">
+                <div class="titulo">
+                    <h2>Alertas, insignias y progreso</h2>
+                    <p>Mensajes de estado, etiquetas y barras de avance.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-7">
+                        <div class="alert alert-primary" role="alert">Esta alerta toma el color <strong>principal</strong> del tema activo.</div>
+                        <div class="alert alert-success" role="alert">Guardado correctamente.</div>
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            Revisa los datos antes de enviar.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+                        </div>
+                        <div class="alert alert-danger mb-0" role="alert">No se pudo conectar con el servidor.</div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="caja-demo">
+                            <div class="d-flex flex-wrap gap-2 mb-4">
+                                <span class="badge text-bg-primary">Principal</span>
+                                <span class="badge text-bg-secondary">Secundario</span>
+                                <span class="badge text-bg-success">Éxito</span>
+                                <span class="badge text-bg-danger">Peligro</span>
+                                <span class="badge text-bg-warning">Aviso</span>
+                                <span class="badge text-bg-acento">Acento</span>
+                                <span class="badge rounded-pill text-bg-primary">Pastilla</span>
+                            </div>
+                            <label class="form-label" for="prog1">Evidencias entregadas</label>
+                            <div class="progress mb-3" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" id="prog1">
+                                <div class="progress-bar" style="width: 75%">75%</div>
+                            </div>
+                            <div class="progress mb-4" role="progressbar" aria-label="Progreso rayado" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+                                <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 40%"></div>
+                            </div>
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="spinner-border text-primary" role="status"><span class="visually-hidden">Cargando...</span></div>
+                                <div class="spinner-grow text-primary" role="status"><span class="visually-hidden">Cargando...</span></div>
+                                <span class="text-muted">Cargando</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Contenido: acordeón, pestañas, carrusel ===== -->
+        <section class="seccion" id="contenido">
+            <div class="container">
+                <div class="titulo">
+                    <h2>Acordeón, pestañas y carrusel</h2>
+                    <p>Componentes para organizar contenido en poco espacio.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-6">
+                        <div class="accordion" id="acordeonDemo">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#acc1" aria-expanded="true" aria-controls="acc1">¿Qué es una variable CSS?</button>
+                                </h2>
+                                <div id="acc1" class="accordion-collapse collapse show" data-bs-parent="#acordeonDemo">
+                                    <div class="accordion-body">Es un valor con nombre, como <code>--t-primary</code>, que puedes reutilizar en todo el CSS con <code>var()</code>.</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#acc2" aria-expanded="false" aria-controls="acc2">¿Cómo cambia el tema?</button>
+                                </h2>
+                                <div id="acc2" class="accordion-collapse collapse" data-bs-parent="#acordeonDemo">
+                                    <div class="accordion-body">El JavaScript cambia el atributo <code>data-tema</code> de la etiqueta <code>&lt;html&gt;</code> y el CSS aplica el conjunto de variables de ese tema.</div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#acc3" aria-expanded="false" aria-controls="acc3">¿Puedo crear mi propio tema?</button>
+                                </h2>
+                                <div id="acc3" class="accordion-collapse collapse" data-bs-parent="#acordeonDemo">
+                                    <div class="accordion-body">Sí. Copia un bloque <code>[data-tema="..."]</code> en <code>styles.css</code>, cambia los colores y agrega un botón con ese nombre.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="caja-demo">
+                            <ul class="nav nav-tabs" id="pestanas" role="tablist">
+                                <li class="nav-item" role="presentation"><button class="nav-link active" id="t1-tab" data-bs-toggle="tab" data-bs-target="#t1" type="button" role="tab" aria-controls="t1" aria-selected="true">HTML</button></li>
+                                <li class="nav-item" role="presentation"><button class="nav-link" id="t2-tab" data-bs-toggle="tab" data-bs-target="#t2" type="button" role="tab" aria-controls="t2" aria-selected="false">CSS</button></li>
+                                <li class="nav-item" role="presentation"><button class="nav-link" id="t3-tab" data-bs-toggle="tab" data-bs-target="#t3" type="button" role="tab" aria-controls="t3" aria-selected="false">JavaScript</button></li>
+                            </ul>
+                            <div class="tab-content pt-3">
+                                <div class="tab-pane fade show active" id="t1" role="tabpanel" aria-labelledby="t1-tab" tabindex="0">Estructura la página con etiquetas semánticas y clases de Bootstrap.</div>
+                                <div class="tab-pane fade" id="t2" role="tabpanel" aria-labelledby="t2-tab" tabindex="0">Define los colores en variables y sobrescribe las de Bootstrap.</div>
+                                <div class="tab-pane fade" id="t3" role="tabpanel" aria-labelledby="t3-tab" tabindex="0">Cambia el atributo <code>data-tema</code> y guarda la elección en LocalStorage.</div>
+                            </div>
+                            <ul class="nav nav-pills mt-4" aria-label="Pastillas de ejemplo">
+                                <li class="nav-item"><a class="nav-link active" href="#contenido">Activa</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#contenido">Enlace</a></li>
+                                <li class="nav-item"><a class="nav-link disabled" aria-disabled="true">Deshabilitada</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div id="carruselDemo" class="carousel slide" data-bs-ride="false">
+                            <div class="carousel-indicators">
+                                <button type="button" data-bs-target="#carruselDemo" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Diapositiva 1"></button>
+                                <button type="button" data-bs-target="#carruselDemo" data-bs-slide-to="1" aria-label="Diapositiva 2"></button>
+                                <button type="button" data-bs-target="#carruselDemo" data-bs-slide-to="2" aria-label="Diapositiva 3"></button>
+                            </div>
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="slide slide-1"><h3>Color principal</h3><p class="mb-0">Esta diapositiva usa <code class="text-reset">--t-primary</code>.</p></div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="slide slide-2"><h3>Superficie secundaria</h3><p class="mb-0">Esta usa <code class="text-reset">--t-surface-2</code> con borde del tema.</p></div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="slide slide-3"><h3>Color de acento</h3><p class="mb-0">Esta usa <code class="text-reset">--t-accent</code>.</p></div>
+                                </div>
+                            </div>
+                            <button class="carousel-control-prev" type="button" data-bs-target="#carruselDemo" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">Anterior</span>
+                            </button>
+                            <button class="carousel-control-next" type="button" data-bs-target="#carruselDemo" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">Siguiente</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Datos: tabla, lista, paginación ===== -->
+        <section class="seccion" id="datos">
+            <div class="container">
+                <div class="titulo">
+                    <h2>Tabla, lista y navegación</h2>
+                    <p>Datos tabulares con filas rayadas y resaltado al pasar el mouse.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-8">
+                        <div class="table-responsive caja-demo p-2">
+                            <table class="table table-striped table-hover align-middle mb-0">
+                                <thead>
+                                    <tr><th scope="col">#</th><th scope="col">Guía</th><th scope="col">Estado</th><th scope="col">Avance</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><th scope="row">1</th><td>Programación con JavaScript</td><td><span class="badge text-bg-success">Entregada</span></td><td>100%</td></tr>
+                                    <tr><th scope="row">2</th><td>Arreglos, objetos y JSON</td><td><span class="badge text-bg-success">Entregada</span></td><td>100%</td></tr>
+                                    <tr><th scope="row">3</th><td>DOM, eventos y LocalStorage</td><td><span class="badge text-bg-primary">En curso</span></td><td>70%</td></tr>
+                                    <tr><th scope="row">4</th><td>Consumo de una API REST</td><td><span class="badge text-bg-warning">Pendiente</span></td><td>10%</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="list-group mb-4">
+                            <a href="#datos" class="list-group-item list-group-item-action active" aria-current="true">Elemento activo</a>
+                            <a href="#datos" class="list-group-item list-group-item-action">Elemento con enlace</a>
+                            <a href="#datos" class="list-group-item list-group-item-action">Otro elemento</a>
+                            <a class="list-group-item list-group-item-action disabled" aria-disabled="true">Deshabilitado</a>
+                        </div>
+                        <nav aria-label="Migas de pan">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="#inicio">Inicio</a></li>
+                                <li class="breadcrumb-item"><a href="#datos">Datos</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Tabla</li>
+                            </ol>
+                        </nav>
+                        <nav aria-label="Paginación">
+                            <ul class="pagination mb-0">
+                                <li class="page-item disabled"><span class="page-link">Anterior</span></li>
+                                <li class="page-item active" aria-current="page"><span class="page-link">1</span></li>
+                                <li class="page-item"><a class="page-link" href="#datos">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#datos">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#datos">Siguiente</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Interactivos ===== -->
+        <section class="seccion" id="interactivos">
+            <div class="container">
+                <div class="titulo">
+                    <h2>Componentes interactivos</h2>
+                    <p>Ventana modal, notificación, panel lateral, tooltip y popover.</p>
+                </div>
+                <div class="caja-demo">
+                    <div class="d-flex flex-wrap gap-2">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalDemo">Abrir modal</button>
+                        <button type="button" class="btn btn-outline-primary" id="btnToast">Mostrar notificación</button>
+                        <button type="button" class="btn btn-outline-primary" data-bs-toggle="offcanvas" data-bs-target="#panelDemo" aria-controls="panelDemo">Abrir panel lateral</button>
+                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="tooltip" data-bs-title="Soy un tooltip">Pasa el mouse</button>
+                        <button type="button" class="btn btn-outline-secondary" data-bs-toggle="popover" data-bs-title="Popover" data-bs-content="Contenido del popover con el color del tema.">Haz clic</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Variables del tema activo ===== -->
+        <section class="seccion" id="variables">
+            <div class="container">
+                <div class="titulo">
+                    <h2>Variables del tema activo</h2>
+                    <p>Este bloque se actualiza solo cuando cambias de tema. Copia estas variables para crear tu propio tema.</p>
+                </div>
+                <div class="d-flex justify-content-end mb-2">
+                    <button type="button" class="btn btn-sm btn-outline-primary" id="btnCopiar">Copiar CSS</button>
+                </div>
+                <pre class="codigo" id="codigoTema" aria-live="polite"></pre>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container d-flex flex-wrap justify-content-between gap-2">
+            <span>Laboratorio de temas con Bootstrap 5.3 - HTML, CSS y JavaScript.</span>
+            <a href="#inicio">Volver arriba</a>
+        </div>
+    </footer>
+
+    <!-- ===== Modal ===== -->
+    <div class="modal fade" id="modalDemo" tabindex="-1" aria-labelledby="modalTitulo" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitulo">Ventana modal</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">Esta ventana usa los colores del tema activo: fondo, borde y botones.</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Panel lateral ===== -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="panelDemo" aria-labelledby="panelTitulo">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="panelTitulo">Panel lateral</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+        </div>
+        <div class="offcanvas-body">
+            <p>Cambia de tema desde aquí también:</p>
+            <div class="d-grid gap-2" id="panelTemas">
+                <button type="button" class="btn btn-outline-primary" data-tema="claro">Claro</button>
+                <button type="button" class="btn btn-outline-primary" data-tema="oscuro">Oscuro</button>
+                <button type="button" class="btn btn-outline-primary" data-tema="oceano">Océano</button>
+                <button type="button" class="btn btn-outline-primary" data-tema="atardecer">Atardecer</button>
+                <button type="button" class="btn btn-outline-primary" data-tema="bosque">Bosque</button>
+                <button type="button" class="btn btn-outline-primary" data-tema="sena">SENA</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== Notificación ===== -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="toastDemo" class="toast" role="status" aria-live="polite" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Laboratorio de temas</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Cerrar"></button>
+            </div>
+            <div class="toast-body" id="toastTexto">Notificación de ejemplo.</div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
